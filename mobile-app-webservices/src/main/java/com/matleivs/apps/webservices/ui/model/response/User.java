@@ -1,7 +1,7 @@
 package com.matleivs.apps.webservices.ui.model.response;
 
 /**
- * The Java Bean for the User data.
+ * The Java Bean for the User data Model.
  * 
  * @author nikbin
  */
