@@ -1,6 +1,8 @@
 package com.matleivs.apps.webservices.ui.controllers;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,14 +30,14 @@ public class UserController {
 	@GetMapping(path = "/{userId}", produces = { 
 			MediaType.APPLICATION_XML_VALUE, 
 			MediaType.APPLICATION_JSON_VALUE })
-	public User getUser(@PathVariable String userId) {
+	public ResponseEntity<User> getUser(@PathVariable String userId) {
 
 		User restUser = new User();
 		restUser.setFirstName("Hakuna");
 		restUser.setLastName("Matata");
 		restUser.setEmail("hakuna@matata.com");
 
-		return restUser;
+		return new ResponseEntity<User>(restUser, HttpStatus.OK);
 	}
 
 	@PostMapping
